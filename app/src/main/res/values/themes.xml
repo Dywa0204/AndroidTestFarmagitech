@@ -17,4 +17,9 @@
         <item name="backgroundColor">@color/white_lilac</item>
 
     </style>
+
+    <style name="Theme.PdfView.SelectedTheme" parent="@style/Theme.PdfView.Light">
+        <item name="pdfView_backIcon">@drawable/ic_arrow_back</item>
+        <item name="pdfView_actionBarTint">@color/purple_500</item>
+    </style>
 </resources>

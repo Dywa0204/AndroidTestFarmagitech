@@ -81,8 +81,8 @@ public class DocumentListAdapter extends RecyclerView.Adapter<DocumentListAdapte
 
         picasso
             .load( thumUrl )
-            .placeholder(R.drawable.img_placeholder)
-            .error(R.drawable.img_placeholder)
+            .placeholder(R.drawable.img_doc)
+            .error(R.drawable.img_error)
             .fit(). centerCrop()
             .into(holder.doc_image);
 

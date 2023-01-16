@@ -45,8 +45,8 @@ public class PatientListAdapter extends RecyclerView.Adapter<PatientListAdapter.
         String gender = Objects.equals(result.getGender(), "L") ? "male" : "female";
         Picasso.get()
                 .load( "https://xsgames.co/randomusers/avatar.php?g=" + gender + "&id=" + result.getPatient_id() )
-                .placeholder(R.drawable.img_placeholder)
-                .error(R.drawable.img_placeholder)
+                .placeholder(R.drawable.img_profile)
+                .error(R.drawable.img_error)
                 .fit(). centerCrop()
                 .into(holder.userImage);
 

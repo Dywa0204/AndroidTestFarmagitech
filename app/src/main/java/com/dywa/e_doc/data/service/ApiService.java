@@ -1,5 +1,8 @@
 package com.dywa.e_doc.data.service;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.io.IOException;
 
 import okhttp3.Interceptor;
@@ -20,16 +23,21 @@ public class ApiService {
             @Override
             public Response intercept(Chain chain) throws IOException {
                 Request newRequest  = chain.request().newBuilder()
+                        .addHeader("Accept", "application/json")
                         .addHeader("Authorization", "Bearer " + token)
                         .build();
                 return chain.proceed(newRequest);
             }
         }).build();
 
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
+
         retrofit = new Retrofit.Builder()
                 .client(client)
                 .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
         return retrofit.create(ApiEndpoint.class);
